@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import UserForm from './pages/UserForm'
+import Dashboard from './pages/Dashboard';
+import { Routes, Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import PopularDishForm from './pages/PopularDishesForm';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Layout>
+      <Routes>
+        <Route path='/' element={<UserForm type='login' />} />
+        <Route path='/signup' element={<UserForm type='signup'/>} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dishes/:id' element={<PopularDishForm isEditable={true}/>} />
+        <Route path='/popular-dish-form' element={<PopularDishForm />} />
+      </Routes>
+    </Layout>
+    </BrowserRouter>
+    
   );
 }
 

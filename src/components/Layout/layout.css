@@ -1,0 +1,12 @@
+.layout{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+.title{
+    font-size: 36px;
+}
+
+.logout {
+    width: 100px;
+}
