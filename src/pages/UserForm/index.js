@@ -6,6 +6,7 @@ import { supabase } from '../../config/SupabaseClient';
 const UserForm = (props) => {
   const navigate = useNavigate();
   const { type } = props;
+  console.log('type', type);
   const [user, setUser] = useState({
     name: '',
     email: '',
