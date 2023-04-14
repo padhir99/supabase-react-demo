@@ -27,7 +27,7 @@ const UserForm = (props) => {
           },
         },
       });
-      navigate('/')
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +39,6 @@ const UserForm = (props) => {
         email: user.email,
         password: user.password,
       });
-      console.log('login-data', data);
       navigate('/dashboard');
     } catch (error) {
       console.log(error);
@@ -48,7 +47,6 @@ const UserForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log('user', user);
     type === 'signup' ? signUp(user) : login(user);
   };
 
@@ -80,6 +78,15 @@ const UserForm = (props) => {
           <button type='submit'>
             {type === 'signup' ? 'Sign Up' : 'Login'}
           </button>
+          {type === 'signup' && (
+            <div>
+              Already a User ?. Please <a href={'/login'}>Login</a> to access
+              the dashboard
+            </div>
+          )}
+          {type === 'login' && (
+            <div>Not Registered ?. Please <a href={'/signup'}>Sign up</a> to access the dashboard</div>
+          )}
         </div>
       </form>
     </div>

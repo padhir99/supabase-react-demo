@@ -7,6 +7,16 @@
     font-size: 36px;
 }
 
-.logout {
+.button {
     width: 100px;
+}
+.user-name{
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.user-data {
+    display: flex;
+    gap: 16px;
 }
