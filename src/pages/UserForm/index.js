@@ -6,6 +6,7 @@ import { supabase } from '../../config/SupabaseClient';
 const UserForm = (props) => {
   const navigate = useNavigate();
   const { type } = props;
+  console.log('type', type);
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -27,7 +28,7 @@ const UserForm = (props) => {
           },
         },
       });
-      navigate('/')
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +40,6 @@ const UserForm = (props) => {
         email: user.email,
         password: user.password,
       });
-      console.log('login-data', data);
       navigate('/dashboard');
     } catch (error) {
       console.log(error);
@@ -80,6 +80,15 @@ const UserForm = (props) => {
           <button type='submit'>
             {type === 'signup' ? 'Sign Up' : 'Login'}
           </button>
+          {type === 'signup' && (
+            <div>
+              Already a User ?. Please <a href={'/login'}>Login</a> to access
+              the dashboard
+            </div>
+          )}
+          {type === 'login' && (
+            <div>Not Registered ?. Please <a href={'/signup'}>Sign up</a> to access the dashboard</div>
+          )}
         </div>
       </form>
     </div>
